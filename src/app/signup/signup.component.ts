@@ -16,7 +16,7 @@ export class SignupComponent {
 
   state = '';
   error: any;
-  email: string ;
+  email: string;
   password: string;
 
   constructor(public afAuth: AngularFireAuth, private router: Router) {
@@ -26,7 +26,7 @@ export class SignupComponent {
   onSubmit(formData) {
     if (formData.valid) {
       console.log(formData.value);
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+      firebase.auth().createUserWithEmailAndPassword(formData.value.email, formData.value.password)
       .then(
         (success) => {
         console.log(success);
